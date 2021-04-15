@@ -10,15 +10,6 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
   
-function truncateText(str, maxLength) {
-  if (str.length > maxLength) {
-        return str.slice(0, maxLength-1) + "...";
-  }
-  return str;
-}
-
-const truncPostTitle = truncateText( {post.frontmatter.title}, 11);
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -31,7 +22,7 @@ const truncPostTitle = truncateText( {post.frontmatter.title}, 11);
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{truncPostTitle}</h1>
+          <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
         <section
