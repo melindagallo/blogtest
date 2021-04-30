@@ -97,12 +97,8 @@ const defaultTitle = site.siteMetadata?.title
         },
       ].concat(meta)}
      >
-      <script type="application/ld+json">
-        {` 
-	  JSON.stringify(schemaOrgJSONLD)
-	`}
-      </script>
-  </Helmet>
+      <script type="application/ld+json">{ JSON.stringify(schemaOrgJSONLD) }</script>
+ </Helmet>
 }
 
 SEO.defaultProps = {
