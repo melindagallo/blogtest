@@ -27,8 +27,8 @@ const SEO = ({ description, lang, meta, title }) => {
     `
   )
 
-const metaDescription = description || site.siteMetadata.description
-const defaultTitle = site.siteMetadata?.title
+  const metaDescription = description || site.siteMetadata.description
+  const defaultTitle = site.siteMetadata?.title
 
   return (
     <Helmet
@@ -41,10 +41,6 @@ const defaultTitle = site.siteMetadata?.title
         {
           name: `description`,
           content: metaDescription,
-        },
-        {
-          property: `title`,
-          content: title,
         },
         {
           property: `og:title`,
@@ -75,7 +71,8 @@ const defaultTitle = site.siteMetadata?.title
           content: metaDescription,
         },
       ].concat(meta)}
-     />
+    />
+  )
 }
 
 SEO.defaultProps = {
