@@ -96,7 +96,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
       ].concat(meta)}
      >
-	<script type="application/ld+json"> {` JSON.stringify(myschema) `} </script>
+{ <script type="application/ld+json"> {` JSON.stringify(myschema) `} </script> }
      </Helmet>
   )
 }
