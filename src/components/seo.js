@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({ description, lang, meta, title, schemaMarkup }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -76,26 +76,9 @@ const defaultTitle = site.siteMetadata?.title
         },
       ].concat(meta)}
      >
-      <script type="application/ld+json">{ JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Visby Medical",
-  "url": "https://www.visbymedical.com/",
-  "logo": "https://media.visbymedical.com/VisbyLogoTM.png",
-  "contactPoint": {
-	 "@type": "ContactPoint",
-	 "telephone": "833-468-4729",
-	 "contactType": "customer service",
-	 "contactOption": "TollFree",
-	 "areaServed": "US",
-	 "availableLanguage": "en"
-  },
-  "sameAs": [
-	"https://www.linkedin.com/company/visbymedical",
-	"https://twitter.com/visbymedical",
-	"https://www.facebook.com/visbymedical/"
-  ]
-} ) }</script>
+      {schemaMarkup &&
+        <script type="application/ld+json">{JSON.stringify(schemaMarkup)}</script>
+      }
  </Helmet>
 }
 
