@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({ description, lang, meta, title, schemaMarkup }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -26,7 +26,7 @@ const SEO = ({ description, lang, meta, title }) => {
       }
     `
   )
-  	const myschema = {
+  	const schemaMarkup = {
 	  "@context": "https://schema.org",
 	  "@type": "Organization",
 	  "name": "Visby Medical",
@@ -96,9 +96,9 @@ const SEO = ({ description, lang, meta, title }) => {
         },
       ].concat(meta)}
      >
-{ <script type="application/ld+json"> {` JSON.stringify(myschema) `} </script> }
-     </Helmet>
-  )
+      {schemaMarkup &&
+        <script type="application/ld+json">{JSON.stringify(schemaMarkup)}</script>
+      }
 }
 
 SEO.defaultProps = {
