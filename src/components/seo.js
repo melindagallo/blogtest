@@ -26,29 +26,29 @@ const SEO = ({ description, lang, meta, title }) => {
       }
     `
   )
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Visby Medical",
-  "url": "https://www.visbymedical.com/",
-  "logo": "https://media.visbymedical.com/VisbyLogoTM.png",
-  "contactPoint": {
-	 "@type": "ContactPoint",
-	 "telephone": "833-468-4729",
-	 "contactType": "customer service",
-	 "contactOption": "TollFree",
-	 "areaServed": "US",
-	 "availableLanguage": "en"
-  },
-  "sameAs": [
-	"https://www.linkedin.com/company/visbymedical",
-	"https://twitter.com/visbymedical",
-	"https://www.facebook.com/visbymedical/"
-  ]
-}
+  	const myschema = {
+	  "@context": "https://schema.org",
+	  "@type": "Organization",
+	  "name": "Visby Medical",
+	  "url": "https://www.visbymedical.com/",
+	  "logo": "https://media.visbymedical.com/VisbyLogoTM.png",
+	  "contactPoint": {
+		 "@type": "ContactPoint",
+		 "telephone": "833-468-4729",
+		 "contactType": "customer service",
+		 "contactOption": "TollFree",
+		 "areaServed": "US",
+		 "availableLanguage": "en"
+	  },
+	  "sameAs": [
+		"https://www.linkedin.com/company/visbymedical",
+		"https://twitter.com/visbymedical",
+		"https://www.facebook.com/visbymedical/"
+	  ]
+	}
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+	const metaDescription = description || site.siteMetadata.description
+	const defaultTitle = site.siteMetadata?.title
 
   return (
     <Helmet
@@ -61,6 +61,10 @@ const structuredData = {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          property: `title`,
+          content: title,
         },
         {
           property: `og:title`,
@@ -90,9 +94,10 @@ const structuredData = {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}>
-	  <script type="application/ld+json"> {` JSON.stringify(structuredData) `} </script>
-</Helmet>
+      ].concat(meta)}
+     >
+	<script type="application/ld+json"> {` JSON.stringify(myschema) `} </script>
+     </Helmet>
   )
 }
 
