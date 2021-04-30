@@ -91,7 +91,7 @@ const structuredData = {
           content: metaDescription,
         },
       ].concat(meta)}>
-	  <script type="application/ld+json"> { JSON.stringify(structuredData) } </script>
+	  <script type="application/ld+json"> {` JSON.stringify(structuredData) `} </script>
 </Helmet>
   )
 }
