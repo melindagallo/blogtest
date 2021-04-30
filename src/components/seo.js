@@ -27,7 +27,7 @@ const SEO = ({ description, lang, meta, title }) => {
     `
   )
   
-const schemaOrgJSONLD = [ {
+const schemaOrgJSONLD = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Visby Medical",
@@ -46,7 +46,7 @@ const schemaOrgJSONLD = [ {
 	"https://twitter.com/visbymedical",
 	"https://www.facebook.com/visbymedical/"
   ]
-} ];
+} 
 
 const metaDescription = description || site.siteMetadata.description
 const defaultTitle = site.siteMetadata?.title
@@ -98,7 +98,9 @@ const defaultTitle = site.siteMetadata?.title
       ].concat(meta)}
      >
       <script type="application/ld+json">
-        {JSON.stringify(schemaOrgJSONLD)}
+        {` 
+	  JSON.stringify(schemaOrgJSONLD)
+	`}
       </script>
   </Helmet>
 }
