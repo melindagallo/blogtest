@@ -26,6 +26,9 @@ const SEO = ({ description, lang, meta, title, schemaMarkup }) => {
       }
     `
   )
+
+	const metaDescription = description || site.siteMetadata.description
+	const defaultTitle = site.siteMetadata?.title
   	const schemaMarkup = {
 	  "@context": "https://schema.org",
 	  "@type": "Organization",
@@ -46,9 +49,6 @@ const SEO = ({ description, lang, meta, title, schemaMarkup }) => {
 		"https://www.facebook.com/visbymedical/"
 	  ]
 	}
-
-	const metaDescription = description || site.siteMetadata.description
-	const defaultTitle = site.siteMetadata?.title
 
   return (
     <Helmet
